@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>jCombat Demo - Microservices</title>
+    </head>
+
+    <body>
+        <h1 style="color: red">jCombat Demo - Microservices with Spring Boot</h1>
+        <div class="container">
+            <div class="row">
+                <h2>User Profiles</h2>
+                <ul th:each="profile: ${profiles}">
+                    <li>
+                        <a th:href="@{/user/details/{id}(id = ${profile.userId})}">
+                            <span th:text="${profile.name}"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>

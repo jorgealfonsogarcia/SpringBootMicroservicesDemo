@@ -3,10 +3,6 @@
 spring:
   application:
     name: profiles-microservice-consumer-garcia-and-poveda
-  mvc:
-    view:
-      prefix: /WEB-INF/views/
-      suffix: .jsp
 
 # Discovery Server Access
 eureka:
