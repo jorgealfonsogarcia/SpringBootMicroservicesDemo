@@ -1,5 +1,6 @@
 package com.jcombat.client;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -11,8 +12,12 @@ import org.springframework.web.client.RestTemplate;
 @EnableEurekaClient
 public class ProfileMicroserviceClientApplication {
 	
-	public static final String PROFILES_SERVICE_URL = "http://PROFILES-MICROSERVICE-PRODUCER";
-	
+	public final String profilesServiceUrl;
+
+	public ProfileMicroserviceClientApplication(@Value("${profiles.service.url}") String profilesServiceUrl) {
+		this.profilesServiceUrl = profilesServiceUrl;
+	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(ProfileMicroserviceClientApplication.class, args);
 	}
@@ -24,6 +29,6 @@ public class ProfileMicroserviceClientApplication {
 	}
 	@Bean
 	public ProfileRepository profileRepository(){
-		return new RemoteProfileRepository(PROFILES_SERVICE_URL);
+		return new RemoteProfileRepository(profilesServiceUrl);
 	}
 }

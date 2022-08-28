@@ -24,3 +24,7 @@ server:
 info:
   app:
     name: ProfileMicroserviceConsumer
+
+profiles:
+  service:
+    url: http://profiles-microservice-producer-jorge-and-diego
