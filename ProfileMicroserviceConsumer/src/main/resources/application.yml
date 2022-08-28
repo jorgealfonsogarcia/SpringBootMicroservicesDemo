@@ -2,7 +2,7 @@
 # Control the InternalResourceViewResolver:
 spring:
   application:
-    name: profiles-microservice-consumer
+    name: profiles-microservice-consumer-garcia-and-poveda
   mvc:
     view:
       prefix: /WEB-INF/views/
@@ -15,6 +15,12 @@ eureka:
       defaultZone: http://localhost:1111/eureka/
 
 # Disable Spring Boot's "Whitelabel" default error page, so we can use our own
-error:
-  whitelabel:
-    enabled:  false
+server:
+  error:
+    whitelabel:
+      enabled: false
+
+# Information for the Actuator endpoint
+info:
+  app:
+    name: ProfileMicroserviceConsumer
